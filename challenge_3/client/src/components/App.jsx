@@ -51,7 +51,7 @@ class App extends React.Component {
         console.log('clicked?', this.state.checkoutClicked);
         if (this.state.checkoutClicked) {
             console.log('yeah we clicked')
-            toBeRendered = <F1 handleChange={this.handleChange} textInputs={this.state}/>
+            toBeRendered = <F1 handleChange={this.handleChange} textInputs={this.state} handleClick={this.handleClick}/>
         } else {
             toBeRendered = <form onSubmit={this.handleClick}>
                                 <input type="submit" value="checkout"></input>
