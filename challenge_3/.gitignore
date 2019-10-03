@@ -1,1 +1,4 @@
-public/app.js
+.DS_Store
+package-lock.json
+/client/dist/bundle.js
+/node_modules
