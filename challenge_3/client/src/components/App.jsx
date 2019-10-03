@@ -23,15 +23,17 @@ class App extends React.Component {
         };
 
         this.handleClick = this.handleClick.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleSubmit(event) {
+    handleChange(event) {
         event.preventDefault();
-        name = event.target.value;
+        const name = event.target.name;
+        const value = event.target.value;
 
+        console.log('event:', event.target.value);
         this.setState({
-            [name]: name
+            [name]: value
         })
     }
 
@@ -49,7 +51,7 @@ class App extends React.Component {
         console.log('clicked?', this.state.checkoutClicked);
         if (this.state.checkoutClicked) {
             console.log('yeah we clicked')
-            toBeRendered = <F1 handleSubmit={this.handleSubmit} />
+            toBeRendered = <F1 handleChange={this.handleChange} textInputs={this.state}/>
         } else {
             toBeRendered = <form onSubmit={this.handleClick}>
                                 <input type="submit" value="checkout"></input>
