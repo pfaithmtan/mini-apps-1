@@ -14,10 +14,15 @@ app.post('/user', (req, res) => {
     // upon receiving request from client, server needs to do something
     // this is where the server asks the database to query itself
     
-    // db.query('INSERT INTO user ', function (error, results) {
-    //     if (error) throw error;
-    //     console.log('The solution is: ', results[0].solution);
-    // });
+    const queryString = `INSERT INTO user(name, email, password) VALUES ("${req.body.name}", "${req.body.email}", "${req.body.password}")`;
+    db.query(queryString, function (error, results) {
+        if (error) {
+            res.status(500).send();
+        } else {
+            console.log('Posted info to the database!');
+            res.status(200).send();
+        }
+    });
 });
 
 app.listen(port, () => console.log(`Server listening on port ${port}!`))

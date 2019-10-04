@@ -12,7 +12,9 @@ class F1 extends React.Component {
         this.handleNext = this.handleNext.bind(this);
     }
 
-    handleNext() {
+    handleNext(event) {
+        event.preventDefault();
+        
         axios.post('/user', {
             name: this.props.textInputs.name,
             email: this.props.textInputs.email,
@@ -43,7 +45,7 @@ class F1 extends React.Component {
                         Password:
                     <input type="password" name="password" value={this.props.textInputs.password} /> <br></br>
                     </label>
-                    <input type="submit" value="next" handleNext={this.handleNext}></input>
+                    <input type="submit" value="next" onClick={this.handleNext}></input>
                 </form>
             </div>
         );
