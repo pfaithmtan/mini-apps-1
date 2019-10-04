@@ -13,6 +13,13 @@ class F1 extends React.Component {
     }
 
     handleNext() {
+        axios.post('/user', {
+            name: this.props.textInputs.name,
+            email: this.props.textInputs.email,
+            password: this.props.textInputs.password
+        })
+        .then(function(response) {console.log(response)})
+        .catch(function(error) {console.log(error)});
 
         this.setState({
             nextClicked: true
@@ -23,18 +30,18 @@ class F1 extends React.Component {
         return (
             <div>
                 <h2>Create account!</h2>
-                <form onChange={props.handleChange} textInputs={props.textInputs}>
+                <form onChange={this.props.handleChange} textInputs={this.props.textInputs}>
                     <label>
                         Name:
-                    <input type="text" name="name" value={props.textInputs.name} /> <br></br>
+                    <input type="text" name="name" value={this.props.textInputs.name} /> <br></br>
                     </label>
                     <label>
                         Email:
-                    <input type="text" name="email" value={props.textInputs.email} /> <br></br>
+                    <input type="text" name="email" value={this.props.textInputs.email} /> <br></br>
                     </label>
                     <label>
                         Password:
-                    <input type="password" name="password" value={props.textInputs.password} /> <br></br>
+                    <input type="password" name="password" value={this.props.textInputs.password} /> <br></br>
                     </label>
                     <input type="submit" value="next" handleNext={this.handleNext}></input>
                 </form>
