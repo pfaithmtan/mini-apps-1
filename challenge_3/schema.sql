@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS shopping_cart;
-CREATE DATABASE shopping_cart;
+DROP DATABASE IF EXISTS checkout_info;
+CREATE DATABASE checkout_info;
 
-USE shopping_cart;
+USE checkout_info;
 
 CREATE TABLE item (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
